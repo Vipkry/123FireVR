@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/123Fire Assets/Scenes/mainGame.unity
+  isLoaded: 1
+  isActive: 1
