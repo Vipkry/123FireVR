@@ -56,7 +56,7 @@ public class CPC_CameraPath : MonoBehaviour
 {
 
     public bool useMainCamera = true;
-    public Camera selectedCamera;
+	private GameObject selectedCamera;
     public bool lookAtTarget = false;
     public Transform target;
     public bool playOnAwake = false;
@@ -77,14 +77,15 @@ public class CPC_CameraPath : MonoBehaviour
     void Start ()
     {
         
-        if (Camera.main == null) { Debug.LogError("There is no main camera in the scene!"); }
+		selectedCamera = GameObject.Find ("Character");
+        /**if (Camera.main == null) { Debug.LogError("There is no main camera in the scene!"); }
 	    if (useMainCamera)
 	        selectedCamera = Camera.main;
 	    else if (selectedCamera == null)
 	    {
             selectedCamera = Camera.main;
             Debug.LogError("No camera selected for following path, defaulting to main camera");
-        }
+        }**/
 
 	    if (lookAtTarget && target == null)
 	    {

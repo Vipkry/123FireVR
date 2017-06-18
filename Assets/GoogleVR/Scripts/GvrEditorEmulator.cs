@@ -85,9 +85,9 @@ public class GvrEditorEmulator : MonoBehaviour {
     rot = Quaternion.Euler(m_mouseY, m_mouseX, m_mouseZ);
     var neck = (rot * m_neckOffset - m_neckOffset.y * Vector3.up) * m_camera.transform.lossyScale.y;
 
-    Vector3 camPosition = m_camera.transform.position;
+    /**Vector3 camPosition = m_camera.transform.position;
     camPosition.y = neck.y;
-    m_camera.transform.localPosition = neck;
+    m_camera.transform.localPosition = neck;**/
     m_camera.transform.localRotation = rot;
   }
 #endif  // UNITY_EDITOR && UNITY_HAS_GOOGLEVR && (UNITY_ANDROID || UNITY_IOS)
@@ -100,7 +100,7 @@ public class GvrEditorEmulator : MonoBehaviour {
       return;
     }
     m_mouseX = m_mouseZ = 0;  // Do not reset pitch, which is how it works on the phone.
-    m_camera.transform.localPosition = Vector3.zero;
+   // m_camera.transform.localPosition = Vector3.zero;
     m_camera.transform.localRotation = new Quaternion(m_mouseX, m_mouseY, m_mouseZ, 1);
 #endif  // UNITY_EDITOR && UNITY_HAS_GOOGLEVR && (UNITY_ANDROID || UNITY_IOS)
   }
