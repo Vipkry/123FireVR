@@ -4,7 +4,7 @@ timeCreated: 1491692267
 licenseType: Free
 TrueTypeFontImporter:
   serializedVersion: 4
-  fontSize: 16
+  fontSize: 80
   forceTextureCase: -2
   characterSpacing: 0
   characterPadding: 1
@@ -14,7 +14,7 @@ TrueTypeFontImporter:
   - KenVector Future Thin
   fallbackFontReferences: []
   customCharacters: 
-  fontRenderingMode: 0
+  fontRenderingMode: 3
   ascentCalculationMode: 1
   userData: 
   assetBundleName: 
