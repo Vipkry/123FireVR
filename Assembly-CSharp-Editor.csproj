@@ -59,6 +59,8 @@
      <Compile Include="Assets\GoogleVR\Editor\GvrBuildProcessor.cs" />
      <Compile Include="Assets\GoogleVR\Editor\GvrEditorSettings.cs" />
      <Compile Include="Assets\GoogleVR\Editor\GvrMenu.cs" />
+     <Compile Include="Assets\Rapid Waypoint System\Editor\WaypointManagerEditor.cs" />
+     <Compile Include="Assets\Rapid Waypoint System\Editor\WaypointNodeEditor.cs" />
      <None Include="Assets\GoogleVR\Distortion\GvrDistortion.cginc" />
      <None Include="Assets\GoogleVR\Demos\Shaders\VideoDemo\VideoDemoInsideShader.shader" />
      <None Include="Assets\GoogleVR\Shaders\GvrUIOverlayFont.shader" />

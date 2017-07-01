@@ -46,10 +46,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\123Fire Assets\Scripts\EnemyMovement.cs" />
      <Compile Include="Assets\123Fire Assets\Scripts\FX\Fade_in_out.cs" />
      <Compile Include="Assets\123Fire Assets\Scripts\Menu\Menu.cs" />
-     <Compile Include="Assets\123Fire Assets\Scripts\Movement\EnemyController.cs" />
-     <Compile Include="Assets\123Fire Assets\Scripts\Movement\EnemyPath1Follow.cs" />
+     <Compile Include="Assets\123Fire Assets\Scripts\Shoot.cs" />
+     <Compile Include="Assets\123Fire Assets\Scripts\SimpleSpawner.cs" />
      <Compile Include="Assets\123Fire Assets\SetNavigation.cs" />
      <Compile Include="Assets\Addons\CameraPathCreator\Scripts\CPC_CameraPath.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoInputManager.cs" />
@@ -160,6 +161,13 @@
      <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrMathHelpers.cs" />
      <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrUIHelpers.cs" />
      <Compile Include="Assets\GoogleVR\Scripts\Video\GvrVideoPlayerTexture.cs" />
+     <Compile Include="Assets\Rapid Waypoint System\Demo\Scripts\AgentSpawner.cs" />
+     <Compile Include="Assets\Rapid Waypoint System\Demo\Scripts\DemoCamera.cs" />
+     <Compile Include="Assets\Rapid Waypoint System\Demo\Scripts\MapGen.cs" />
+     <Compile Include="Assets\Rapid Waypoint System\Demo\Scripts\Tile.cs" />
+     <Compile Include="Assets\Rapid Waypoint System\Scripts\WaypointAgent.cs" />
+     <Compile Include="Assets\Rapid Waypoint System\Scripts\WaypointManager.cs" />
+     <Compile Include="Assets\Rapid Waypoint System\Scripts\WaypointNode.cs" />
      <Compile Include="Assets\cameraMovementTest.cs" />
      <None Include="Assets\GoogleVR\Distortion\GvrDistortion.cginc" />
      <None Include="Assets\GoogleVR\Demos\Shaders\VideoDemo\VideoDemoInsideShader.shader" />
