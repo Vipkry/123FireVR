@@ -107,6 +107,7 @@ public class WaypointAgent : MonoBehaviour {
 
                 if (currentIndex >= m_waypointManager.NodeQuantity)
                 {
+                    currentIndex--;
                     if (!m_waypointManager.looping)
                     {
                         this.speed = 0;
