@@ -2,9 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : WaypointAgent
 {
-    //TODO: Fazer baseado em WaypointAgent do WaypointManager.
+
+    public int attackDelay;
+
+    protected override void WaypointMovementUpdate()
+    {
+    }
+
+    public IEnumerator attack()
+    {
+
+        yield return new WaitForSecondsRealtime(attackDelay);
+
+    }
 
 }

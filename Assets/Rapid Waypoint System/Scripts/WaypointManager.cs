@@ -136,14 +136,10 @@ public class WaypointManager : MonoBehaviour {
             //outside of the waypointNodes list.
             if (aiObj.CurrentIndex >= waypointNodes.Count)
             {
-                if (!looping)
-                {
-                    RemoveEntity(aiObj);
-                    Destroy(aiObj.gameObject);
-                    objectToMove.TrimExcess();
-                }
-                else
+                
+                if(looping)
                     aiObj.CurrentIndex = 0;
+                    
 
                 continue;
             }                    
