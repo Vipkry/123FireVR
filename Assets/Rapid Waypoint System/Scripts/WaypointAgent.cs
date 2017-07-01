@@ -3,10 +3,12 @@ using System.Collections;
 
 [System.Serializable]
 public class WaypointAgent : MonoBehaviour {
+
+    public int attack_delay;
     
     [SerializeField] protected float minAgentSpeed = 10;
     [SerializeField] protected float maxAgentSpeed = 20;
-    [SerializeField] protected WaypointManager m_waypointManager;
+    public  WaypointManager m_waypointManager;
 
 	[HideInInspector] protected int currentIndex = 0;
     [HideInInspector] public GameObject currentTarget;
@@ -62,7 +64,12 @@ public class WaypointAgent : MonoBehaviour {
         Gizmos.DrawLine(transform.position, currentNodeTarget);
     }
 
-    protected void WaypointMovementUpdate()
+    public IEnumerator attack()
+    {
+        yield return new WaitForSecondsRealtime(attack_delay);
+    }
+
+    protected virtual void WaypointMovementUpdate()
     {
         // If the agent has a gameobject target assigned then move towards it otherwise 
         // get a target position in 3d sapce and move torawrds that
@@ -70,7 +77,7 @@ public class WaypointAgent : MonoBehaviour {
         {
 
             DirectionVector = (currentNodeTarget - transform.position).normalized;
-            transform.Translate(DirectionVector * Time.deltaTime * Speed, Space.World);
+            transform.Translate(DirectionVector.x*Time.deltaTime*speed,0, DirectionVector.z * Time.deltaTime * speed, Space.World);
 
 
             //This is used to give randomness to the movement
@@ -102,12 +109,13 @@ public class WaypointAgent : MonoBehaviour {
                 {
                     if (!m_waypointManager.looping)
                     {
-                        m_waypointManager.RemoveEntity(this);
-                        Destroy(gameObject);
-                        return;
+                        this.speed = 0;
+
+                        StartCoroutine(attack());
+
                     }
                     else
-                        currentIndex = 0;
+                        currentIndex = 0; 
                 }
 
                 // Get a position high enough that the agent wont clip the terrain
@@ -118,7 +126,6 @@ public class WaypointAgent : MonoBehaviour {
 
 
                 currentNodeTarget = targetPosition + m_waypointManager.GetNodePosition(currentIndex);
-                
             }
         }
         else
@@ -127,7 +134,7 @@ public class WaypointAgent : MonoBehaviour {
             DirectionVector = (currentTarget.transform.position - transform.position).normalized;
 
             transform.Translate(DirectionVector * Time.deltaTime * speed, Space.World);
-
+            
             Quaternion targetRotation = Quaternion.LookRotation(currentTarget.transform.position - transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * m_slerpRotationSpeed);
         }
