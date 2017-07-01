@@ -8,6 +8,7 @@ public class Shoot : MonoBehaviour {
 	public ParticleSystem rightParticleSystem;
 	public ParticleSystem leftParticleSystem;
 	private bool isLeftShooting;
+	private bool isShooting;
 
 	public float damage = 10f;
 	public float blastRadius = 5f;
@@ -20,14 +21,23 @@ public class Shoot : MonoBehaviour {
 	public int delayTime;
 	private int actualDelayTime;
 
+
 	// Use this for initialization
 	void Start () {
+		isShooting = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
-		if (Input.GetMouseButtonDown(0) && actualDelayTime >= delayTime){
+		if (Input.GetMouseButtonDown(0)){
+			isShooting = true;
+		}
+
+		if (Input.GetMouseButtonUp(0)){
+			isShooting = false;
+		}
+		if (isShooting && actualDelayTime >= delayTime){
 			if (isLeftShooting){
 				leftParticleSystem.Play();
 				shootSoundSource.panStereo = -0.3f;
@@ -63,14 +73,12 @@ public class Shoot : MonoBehaviour {
 			// 9 é a layer dos inimigos
 			Collider[] collisions = Physics.OverlapSphere (hit.point, blastRadius, enemyLayer.value);
 			if (collisions.Length > 0){
-				Debug.Log (collisions.Length + " targets hit!");
+				for (int i = 0; i < collisions.Length; i++){
+					collisions [0].GetComponent<EnemyHealth> ().takeDamage(damage);
+				}
 			}
 
 		}
 
 	}
-
-
-
-
 }
