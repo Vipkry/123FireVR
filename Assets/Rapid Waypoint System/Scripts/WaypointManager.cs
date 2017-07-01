@@ -136,10 +136,10 @@ public class WaypointManager : MonoBehaviour {
             //outside of the waypointNodes list.
             if (aiObj.CurrentIndex >= waypointNodes.Count)
             {
-                
-                if(looping)
+
+                if (looping)
                     aiObj.CurrentIndex = 0;
-                    
+                
 
                 continue;
             }                    
