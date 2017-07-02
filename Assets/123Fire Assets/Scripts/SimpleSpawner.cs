@@ -1,15 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SimpleSpawner : MonoBehaviour {
 
     // Use this for initialization
 
     public float timeBetweenWaves = 5f;
-    public float timeBetweenSpawn = 3f;
+    public float timeBetweenSpawn;
     public int waveNumber = 0;
+
     public int enemiesLeft;
+    public int playerScore;
+
+    public int baseLife;
+
+    public Text score;
+    public Text currentWave;
+    public Text lifeText;
+
+
+
 
     bool hasEnemies = false;
 
@@ -22,19 +34,37 @@ public class SimpleSpawner : MonoBehaviour {
     public Transform spawnPoint;
     
 	void Start () {
+        playerScore = 0;
         myWaypoint = GetComponent<WaypointManager>();
         enemiesLeft = 0;
-	}
+        baseLife = 30;
+        timeBetweenSpawn = 3.15f;
+    }
 
-    private void Update()
+    private void FixedUpdate()
     {
         
-        if(enemiesLeft == 0 && !hasEnemies)
+        /*
+        if(baseLife == 0)
+        {
+            TODO: Game Over
+        }
+        */
+
+        if (enemiesLeft == 0 && !hasEnemies)
         {
             hasEnemies = true;
             StartCoroutine(spawnWave());
+
+            // código abaixo acelera velocidade do spawn.
+            if (timeBetweenSpawn >= 1.15f)
+            {
+                timeBetweenSpawn -= 0.15f;
+            }
+
             waveNumber++;
         }
+        showScore();
     }
 
     private IEnumerator spawnWave()
@@ -68,6 +98,14 @@ public class SimpleSpawner : MonoBehaviour {
             return spawnTable[spawnTable.Length - 1] + 3 * waveNumber;
         }
         
+    }
+
+    private void showScore()
+    {
+        score.text = "Score: " + playerScore.ToString();
+        currentWave.text = "Current wave: " + waveNumber.ToString();
+        lifeText.text = "Player life: " + baseLife.ToString();
+
     }
 
 }
