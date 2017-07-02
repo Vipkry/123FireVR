@@ -6,35 +6,68 @@ public class SimpleSpawner : MonoBehaviour {
 
     // Use this for initialization
 
-    public int spawnedEnemies;
-    private float spawnDowntime;
-    int[] waveSize = { 2, 3 };
-    protected WaypointManager myWaypoint;
+    public float timeBetweenWaves = 5f;
+    public float timeBetweenSpawn = 3f;
+    public int waveNumber = 0;
+    public int enemiesLeft;
 
+    bool hasEnemies = false;
+
+
+    //Tamanho de cada wave
+    public int[] spawnTable = {10, 20, 35, 50, 70, 80, 100 };
+
+    protected WaypointManager myWaypoint;
     public GameObject enemyPrefab;
     public Transform spawnPoint;
     
 	void Start () {
-        StartCoroutine(spawnCoroutine());
-        spawnedEnemies = 0;
-        spawnDowntime = 3.0f;
         myWaypoint = GetComponent<WaypointManager>();
+        enemiesLeft = 0;
 	}
 
-    IEnumerator spawnCoroutine()
+    private void Update()
     {
-        while (true)
-        {
-            do
-            {
-                yield return new WaitForSecondsRealtime(spawnDowntime);
-            } while (spawnedEnemies >= 10);
-
-            myWaypoint.AddEntity((GameObject)Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation));
-            spawnedEnemies = spawnedEnemies + 1;
         
+        if(enemiesLeft == 0 && !hasEnemies)
+        {
+            hasEnemies = true;
+            StartCoroutine(spawnWave());
+            waveNumber++;
+        }
+    }
+
+    private IEnumerator spawnWave()
+    {
+
+        yield return new WaitForSeconds(timeBetweenWaves);
+
+        for(int i = 0; i < decideEnemyNumber(); i++)
+        {
+            spawnEnemy();
+            enemiesLeft++;
+            yield return new WaitForSeconds(timeBetweenSpawn);
         }
 
+        hasEnemies = false;
+
+    }
+
+    private void spawnEnemy()
+    {
+        myWaypoint.AddEntity((GameObject)Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation));
+    }
+
+    private int decideEnemyNumber()
+    {
+        if(waveNumber-1 < spawnTable.Length  )
+        {
+            return (spawnTable[waveNumber-1]);
+        } else
+        {
+            return spawnTable[spawnTable.Length - 1] + 3 * waveNumber;
+        }
+        
     }
 
 }
