@@ -81,6 +81,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\123Fire Assets\Scripts\AudioFadeIn.cs" />
+    <Compile Include="Assets\123Fire Assets\Scripts\EnemyHealth.cs" />
     <Compile Include="Assets\123Fire Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\123Fire Assets\Scripts\FX\Fade_in_out.cs" />
     <Compile Include="Assets\123Fire Assets\Scripts\Menu\Menu.cs" />
@@ -88,7 +90,6 @@
     <Compile Include="Assets\123Fire Assets\Scripts\SimpleSpawner.cs" />
     <Compile Include="Assets\123Fire Assets\SetNavigation.cs" />
     <Compile Include="Assets\Addons\CameraPathCreator\Scripts\CPC_CameraPath.cs" />
-    <Compile Include="Assets\AudioFadeIn.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoInputManager.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoSceneManager.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\GVRDemo\GVRDemoManager.cs" />
