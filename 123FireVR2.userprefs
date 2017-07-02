@@ -6,8 +6,8 @@
       <File FileName="Assets\GoogleVR\Scripts\GvrUnitySdkVersion.cs" Line="1" Column="1" />
       <File FileName="Assets\Addons\CameraPathCreator\Scripts\CPC_CameraPath.cs" Line="1" Column="1" />
       <File FileName="Assets\cameraMovementTest.cs" Line="1" Column="1" />
-      <File FileName="Assets\123Fire Assets\Scripts\Menu\Menu.cs" Line="10" Column="33" />
-      <File FileName="Assets\123Fire Assets\Scripts\Shoot.cs" Line="79" Column="51" />
+      <File FileName="Assets\123Fire Assets\Scripts\Menu\Menu.cs" Line="18" Column="3" />
+      <File FileName="Assets\123Fire Assets\Scripts\Shoot.cs" Line="1" Column="1" />
       <File FileName="Assets\123Fire Assets\Scripts\EnemyHealth.cs" Line="1" Column="1" />
       <File FileName="Assets\123Fire Assets\Scripts\SimpleSpawner.cs" Line="1" Column="1" />
     </Files>
