@@ -14,7 +14,8 @@ public class Shoot : MonoBehaviour {
 	public float blastRadius = 5f;
 	public Transform crosshairTransform;
 	public LayerMask enemyLayer;
-
+	public GameObject ingameButtonGO;
+	private string ingameButtonTag;
 	public AudioSource shootSoundSource;
 	public AudioClip shootSoundClip;
 
@@ -25,6 +26,7 @@ public class Shoot : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		isShooting = false;
+		ingameButtonTag = ingameButtonGO.tag;
 	}
 	
 	// Update is called once per frame
@@ -74,7 +76,12 @@ public class Shoot : MonoBehaviour {
 			Collider[] collisions = Physics.OverlapSphere (hit.point, blastRadius, enemyLayer.value);
 			if (collisions.Length > 0){
 				for (int i = 0; i < collisions.Length; i++){
-					collisions [0].GetComponent<EnemyHealth> ().takeDamage(damage);
+					if (collisions [i].CompareTag(ingameButtonTag)) {	
+						collisions [i].GetComponent<IngameButton> ().hit();
+					}else {
+						collisions [i].GetComponent<EnemyHealth> ().takeDamage(damage);	
+					}
+
 				}
 			}
 

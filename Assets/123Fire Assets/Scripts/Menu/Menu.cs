@@ -2,23 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour {
 
 	public float lookDelayTime = 30;
 	private float currentTime = 0;
 	private bool isLooking = false;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+	public Slider slider;
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if (isLooking){
 			currentTime++;
-			Debug.Log (currentTime);
+			slider.value = currentTime / lookDelayTime;
+
 		}
 
 		if (currentTime >= lookDelayTime){
@@ -28,15 +26,17 @@ public class Menu : MonoBehaviour {
 
 
 	public void NewGame (){
-		Debug.Log ("entered");
 		SceneManager.LoadScene ("mainGame");
 	}
 
 	public void onReticleEnter(){
+		slider.gameObject.SetActive (true);
 		isLooking = true;
 	}
 
 	public void onReticleExit (){
+		slider.value = 0;
+		slider.gameObject.SetActive (false);
 		currentTime = 0;
 		isLooking = false;
 	}
