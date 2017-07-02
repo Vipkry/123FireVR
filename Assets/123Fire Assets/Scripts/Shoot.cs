@@ -72,14 +72,15 @@ public class Shoot : MonoBehaviour {
 
 
 		if (Physics.Raycast(ray, out hit, 1000f)){
-			// 9 é a layer dos inimigos
 			Collider[] collisions = Physics.OverlapSphere (hit.point, blastRadius, enemyLayer.value);
 			if (collisions.Length > 0){
 				for (int i = 0; i < collisions.Length; i++){
 					if (collisions [i].CompareTag(ingameButtonTag)) {	
 						collisions [i].GetComponent<IngameButton> ().hit();
 					}else {
-						collisions [i].GetComponent<EnemyHealth> ().takeDamage(damage);	
+						EnemyHealth aux = collisions [i].GetComponent<EnemyHealth> ();
+						if (aux) aux.takeDamage(damage);	
+						// else is a building
 					}
 
 				}

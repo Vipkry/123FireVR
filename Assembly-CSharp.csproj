@@ -56,6 +56,7 @@
      <Compile Include="Assets\123Fire Assets\Scripts\SimpleSpawner.cs" />
      <Compile Include="Assets\123Fire Assets\SetNavigation.cs" />
      <Compile Include="Assets\Addons\CameraPathCreator\Scripts\CPC_CameraPath.cs" />
+     <Compile Include="Assets\AttackController.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoInputManager.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoSceneManager.cs" />
      <Compile Include="Assets\GoogleVR\Demos\Scripts\GVRDemo\GVRDemoManager.cs" />
@@ -164,6 +165,7 @@
      <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrMathHelpers.cs" />
      <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrUIHelpers.cs" />
      <Compile Include="Assets\GoogleVR\Scripts\Video\GvrVideoPlayerTexture.cs" />
+     <Compile Include="Assets\IngameUI.cs" />
      <Compile Include="Assets\Loader.cs" />
      <Compile Include="Assets\Rapid Waypoint System\Demo\Scripts\AgentSpawner.cs" />
      <Compile Include="Assets\Rapid Waypoint System\Demo\Scripts\DemoCamera.cs" />
