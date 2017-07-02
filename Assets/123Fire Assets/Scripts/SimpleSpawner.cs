@@ -16,12 +16,9 @@ public class SimpleSpawner : MonoBehaviour {
 
     public int baseLife;
 
-    public Text score;
-    public Text currentWave;
-    public Text lifeText;
-
-
-
+    public TextMesh score;
+    public TextMesh currentWave;
+    public TextMesh lifeText;
 
     bool hasEnemies = false;
 
@@ -37,7 +34,7 @@ public class SimpleSpawner : MonoBehaviour {
         playerScore = 0;
         myWaypoint = GetComponent<WaypointManager>();
         enemiesLeft = 0;
-        baseLife = 30;
+        baseLife = 3;
         timeBetweenSpawn = 3.15f;
     }
 
@@ -102,9 +99,13 @@ public class SimpleSpawner : MonoBehaviour {
 
     private void showScore()
     {
-        score.text = "Score: " + playerScore.ToString();
-        currentWave.text = "Current wave: " + waveNumber.ToString();
-        lifeText.text = "Player life: " + baseLife.ToString();
+        score.text = "score: " + playerScore.ToString();
+
+        currentWave.text = "wave: " + waveNumber.ToString();
+        lifeText.text = "base HP: " + baseLife.ToString();
+		if (baseLife < 5){
+			lifeText.color = Color.red;
+		}
 
     }
 
