@@ -9,14 +9,13 @@ public class Menu : MonoBehaviour {
 	public float lookDelayTime = 30;
 	private float currentTime = 0;
 	private bool isLooking = false;
-	public Slider slider;
+	//public Slider slider;
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (isLooking){
 			currentTime++;
-			slider.value = currentTime / lookDelayTime;
-
+			//slider.value = currentTime / lookDelayTime;
 		}
 
 		if (currentTime >= lookDelayTime){
@@ -30,13 +29,13 @@ public class Menu : MonoBehaviour {
 	}
 
 	public void onReticleEnter(){
-		slider.gameObject.SetActive (true);
+		//slider.gameObject.SetActive (true);
 		isLooking = true;
 	}
 
 	public void onReticleExit (){
-		slider.value = 0;
-		slider.gameObject.SetActive (false);
+		//slider.value = 0;
+		//slider.gameObject.SetActive (false);
 		currentTime = 0;
 		isLooking = false;
 	}
