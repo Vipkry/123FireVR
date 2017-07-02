@@ -85,6 +85,7 @@
     <Compile Include="Assets\123Fire Assets\Scripts\EnemyHealth.cs" />
     <Compile Include="Assets\123Fire Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\123Fire Assets\Scripts\FX\Fade_in_out.cs" />
+    <Compile Include="Assets\123Fire Assets\Scripts\Menu\IngameButton.cs" />
     <Compile Include="Assets\123Fire Assets\Scripts\Menu\Menu.cs" />
     <Compile Include="Assets\123Fire Assets\Scripts\Shoot.cs" />
     <Compile Include="Assets\123Fire Assets\Scripts\SimpleSpawner.cs" />
@@ -198,6 +199,7 @@
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrMathHelpers.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrUIHelpers.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Video\GvrVideoPlayerTexture.cs" />
+    <Compile Include="Assets\Loader.cs" />
     <Compile Include="Assets\Rapid Waypoint System\Demo\Scripts\AgentSpawner.cs" />
     <Compile Include="Assets\Rapid Waypoint System\Demo\Scripts\DemoCamera.cs" />
     <Compile Include="Assets\Rapid Waypoint System\Demo\Scripts\MapGen.cs" />

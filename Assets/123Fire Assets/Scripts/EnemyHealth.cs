@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour {
 	public float health = 200f;
 	public Material defaultEnemy;
 	public Material takingDamageEnemy;
+
 	private bool changeMaterial;
 	private int tookDamageDelay;
 	// Use this for initialization
@@ -32,6 +33,7 @@ public class EnemyHealth : MonoBehaviour {
 		tookDamageDelay = 5;
 		changeMaterial = true;
 		if (this.health <= 0){
+            GetComponent<WaypointAgent>().m_waypointManager.GetComponent<SimpleSpawner>().enemiesLeft--;
 			GameObject.Destroy (gameObject);
 		}
 	}
