@@ -34,7 +34,8 @@ public class EnemyHealth : MonoBehaviour {
 		changeMaterial = true;
 		if (this.health <= 0){
             GetComponent<WaypointAgent>().m_waypointManager.GetComponent<SimpleSpawner>().enemiesLeft--;
-			GameObject.Destroy (gameObject);
+            GetComponent<WaypointAgent>().m_waypointManager.GetComponent<SimpleSpawner>().playerScore++;
+            GameObject.Destroy (gameObject);
 		}
 	}
 }

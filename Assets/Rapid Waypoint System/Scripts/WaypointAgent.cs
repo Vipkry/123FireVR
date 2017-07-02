@@ -3,8 +3,6 @@ using System.Collections;
 
 [System.Serializable]
 public class WaypointAgent : MonoBehaviour {
-
-    public int attack_delay;
     
     [SerializeField] protected float minAgentSpeed = 10;
     [SerializeField] protected float maxAgentSpeed = 20;
@@ -29,8 +27,11 @@ public class WaypointAgent : MonoBehaviour {
     public int CurrentIndex { get { return currentIndex; } set { currentIndex = value; } }
     public Vector3 DirectionVector { get { return directionVector; } set { directionVector = value; } }
 
+    public bool onAttackPosition;
+
     public virtual void Start()
     {
+        onAttackPosition = false;
         speed = Random.Range(minAgentSpeed, maxAgentSpeed);
     }
 
@@ -64,10 +65,6 @@ public class WaypointAgent : MonoBehaviour {
         Gizmos.DrawLine(transform.position, currentNodeTarget);
     }
 
-    public IEnumerator attack()
-    {
-        yield return new WaitForSecondsRealtime(attack_delay);
-    }
 
     protected virtual void WaypointMovementUpdate()
     {
@@ -111,8 +108,7 @@ public class WaypointAgent : MonoBehaviour {
                     if (!m_waypointManager.looping)
                     {
                         this.speed = 0;
-
-                        StartCoroutine(attack());
+                        onAttackPosition = true;
 
                     }
                     else
